@@ -1,38 +1,159 @@
-.App {
-  text-align: center;
+@import url("https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;500;600;700&family=Open+Sans:wght@400;600;700&display=swap");
+
+html {
+  background: url(./images/hero-bg.jpg) no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+header {
+  display: flex;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.logo,
+nav,
+.nav_links,
+.search-container {
+  display: flex;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.logo {
+  color: white;
+  font-family: 'Dancing Script', cursive;
+  text-decoration: none;
+  flex: 1;
+  align-items: center;
+  font-size: 32px;
+}
+
+.logo-text {
+  margin-left: 5%;
+}
+
+nav {
+  flex: 2;
+  align-items: center;
+  justify-content: center;
+}
+
+nav a {
+  text-decoration: none;
+  color: white;
+  font-size: 20px;
+  margin: 0px 20px;
+}
+
+nav a:hover {
+  color: #FFBE33;
+}
+
+.nav_links {
+  list-style: none;
+}
+
+.search-container {
+  flex: 1;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.search-container input {
+  border-top-style: hidden;
+  border-right-style: hidden;
+  border-left-style: hidden;
+  border-bottom-style: hidden;
+  background-color: transparent;
+}
+
+.search-container input:focus {
+  outline: none;
+}
+
+.search-container button {
+  margin-right: 5%;
+}
+
+button {
+  background-color: transparent;
+  background-repeat: no-repeat;
+  border: none;
+  cursor: pointer;
+  overflow: hidden;
+  outline: none;
+}
+
+/* Mobile Nav */
+
+.menu {
+  display: none;
+}
+
+.overlay {
+  height: 0;
+  width: 100%;
+  overflow-y: hidden;
+  transition: all 0.5s ease 0s;
+}
+
+.overlay--active {
+  height: 30vh;
+}
+
+.overlay_content {
+  height: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+}
+
+.overlay a {
+  padding: 15px;
+  font-size: 16px;
+  transition: all 0.5s ease 0s;
+  text-decoration: none;
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
+.overlay a:hover {
+  color: #FFBE33;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+.mobile_search {
+  display: flex;
+}
+
+.mobile_search input {
+  border-top-style: hidden;
+  border-right-style: hidden;
+  border-left-style: hidden;
+  border-bottom-style: hidden;
+  background-color: transparent;
+}
+
+
+
+/* Mobile Nav */
+
+@media only screen and (max-width: 800px) {
+
+  nav,
+  .search-container {
+    display: none;
   }
-  to {
-    transform: rotate(360deg);
+
+  .menu {
+    display: flex;
+    margin: 1vh 5%;
+    cursor: pointer;
   }
+}
+
+
+@media only screen and (min-width: 800px) {
+  .overlay {
+    height: 0;
+  }
+
 }
