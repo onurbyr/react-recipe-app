@@ -3,62 +3,49 @@ import "./App.css";
 import { CgSearch, CgMenu } from "react-icons/cg";
 
 const App = () => {
-  const overlay = useRef(null);
-  const [isOverlayVisible, setIsOverlayVisible] = useState(false);
+  const menu = useRef(null);
+  const [isMenuActive, setIsMenuActive] = useState(false);
 
   useEffect(() => {
-    if (isOverlayVisible) {
-      overlay.current.classList.add("overlay--active");
+    if (isMenuActive) {
+      menu.current.classList.add("menu--active");
+      menu.current.classList.remove("menu--deactive");
     } else {
-      overlay.current.classList.remove("overlay--active");
+      menu.current.classList.remove("menu--active");
+      menu.current.classList.add("menu--deactive");
     }
-  }, [isOverlayVisible]);
+  }, [isMenuActive]);
 
   return (
     <div>
       <header>
-        <a className="logo" href="/">
-          <div className="logo-text">RecipeApp</div>
-        </a>
-        <button
-          className="menu"
-          onClick={() => setIsOverlayVisible(!isOverlayVisible)}
-        >
-          <CgMenu style={{ color: "white", fontSize: "36px" }} />
-        </button>
-        <nav>
-          <ul className="nav_links">
-            <li>
-              <a href="#home">HOME</a>
-            </li>
-            <li>
-              <a href="#menu">MENU</a>
-            </li>
-            <li>
-              <a href="#about">ABOUT</a>
-            </li>
-          </ul>
-        </nav>
-        <div className="search-container">
-          <input type="text" placeholder="Search.." name="search" />
-          <button type="submit">
-            <CgSearch style={{ color: "white", fontSize: "22px" }} />
+        <div className="logo-container">
+          <a className="logo" href="/">
+            <div className="logo-text">RecipeApp</div>
+          </a>
+          <button
+            className="menu"
+            onClick={() => setIsMenuActive(!isMenuActive)}
+          >
+            <CgMenu style={{ color: "white", fontSize: "36px" }} />
           </button>
         </div>
-      </header>
-      <div ref={overlay} className="overlay">
-        <div className="overlay_content">
-          <a href="#home">HOME</a>
-          <a href="#menu">MENU</a>
-          <a href="#about">ABOUT</a>
-          <div className="mobile_search">
+        <div ref={menu} className="menu-container">
+          <nav>
+            <div className="nav_links">
+              <a href="#home">HOME</a>
+              <a href="#menu">MENU</a>
+              <a href="#about">ABOUT</a>
+            </div>
+          </nav>
+          <div className="search-container">
             <input type="text" placeholder="Search.." name="search" />
             <button type="submit">
               <CgSearch style={{ color: "white", fontSize: "22px" }} />
             </button>
           </div>
         </div>
-      </div>
+      </header>
       <div style={{ color: "red" }}>
         Et aute esse cillum incididunt fugiat duis occaecat cupidatat in quis
         cillum excepteur fugiat.

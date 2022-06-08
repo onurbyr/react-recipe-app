@@ -10,26 +10,36 @@ html {
 
 header {
   display: flex;
+  padding: 20px 20px;
 }
 
-.logo,
+.logo-container,
+.menu-container,
 nav,
 .nav_links,
 .search-container {
   display: flex;
 }
 
+.logo-container {
+  flex: 1;
+}
+
 .logo {
   color: white;
   font-family: 'Dancing Script', cursive;
   text-decoration: none;
-  flex: 1;
-  align-items: center;
   font-size: 32px;
+  flex: 1;
 }
 
-.logo-text {
-  margin-left: 5%;
+
+.menu {
+  display: none;
+}
+
+.menu-container {
+  flex: 3;
 }
 
 nav {
@@ -49,10 +59,6 @@ nav a:hover {
   color: #FFBE33;
 }
 
-.nav_links {
-  list-style: none;
-}
-
 .search-container {
   flex: 1;
   align-items: center;
@@ -60,10 +66,12 @@ nav a:hover {
 }
 
 .search-container input {
-  border-top-style: hidden;
-  border-right-style: hidden;
-  border-left-style: hidden;
-  border-bottom-style: hidden;
+  border-width: 1px;
+  border-style: solid;
+  height: 30px;
+  color: #ffffff;
+  border-radius: 15px;
+  text-indent: 10px;
   background-color: transparent;
 }
 
@@ -71,9 +79,6 @@ nav a:hover {
   outline: none;
 }
 
-.search-container button {
-  margin-right: 5%;
-}
 
 button {
   background-color: transparent;
@@ -84,76 +89,59 @@ button {
   outline: none;
 }
 
-/* Mobile Nav */
 
-.menu {
-  display: none;
-}
-
-.overlay {
+.menu--deactive {
   height: 0;
-  width: 100%;
-  overflow-y: hidden;
-  transition: all 0.5s ease 0s;
 }
 
-.overlay--active {
-  height: 30vh;
-}
-
-.overlay_content {
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.overlay a {
-  padding: 15px;
-  font-size: 16px;
-  transition: all 0.5s ease 0s;
-  text-decoration: none;
-  color: white;
-}
-
-.overlay a:hover {
-  color: #FFBE33;
-}
-
-.mobile_search {
-  display: flex;
-}
-
-.mobile_search input {
-  border-top-style: hidden;
-  border-right-style: hidden;
-  border-left-style: hidden;
-  border-bottom-style: hidden;
-  background-color: transparent;
+.menu--active {
+  height: 200px;
 }
 
 
-
-/* Mobile Nav */
 
 @media only screen and (max-width: 800px) {
 
-  nav,
+  header {
+    flex-direction: column;
+  }
+
+  .menu-container {
+    flex-direction: column;
+    flex: auto;
+    transition: all 0.5s ease 0s;
+    overflow-y: hidden;
+  }
+
+  .nav_links {
+    flex-direction: column;
+  }
+
+  .nav_links a {
+    padding: 15px;
+    font-size: 16px;
+  }
+
   .search-container {
-    display: none;
+    justify-content: center;
+  }
+
+  .search-container button {
+    margin-right: 0;
   }
 
   .menu {
+    flex: 1;
     display: flex;
-    margin: 1vh 5%;
-    cursor: pointer;
+    justify-content: flex-end;
+    margin-right: 5%;
   }
+
 }
 
-
 @media only screen and (min-width: 800px) {
-  .overlay {
-    height: 0;
+  .menu-container {
+    height: auto;
   }
 
 }
