@@ -2,15 +2,15 @@
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;600;700&display=swap');
 
 
-html {
-  background: url(./images/hero-bg.jpg) no-repeat center center fixed;
+.background {
+  background: url(./images/hero-bg.jpg) no-repeat center;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
 }
 
-/* navbar */
+/* ---navbar */
 header {
   display: flex;
   padding: 20px 10%;
@@ -101,13 +101,24 @@ button {
   height: 200px;
 }
 
-/* navbar */
 
-/* carousel */
+.menu--deactive--bg {
+  height: 100vh;
+}
+
+.menu--active--bg {
+  height: calc(100vh + 200px);
+  /* px value = menu height */
+}
+
+/* navbar--- */
+
+/* ---carousel */
 .carousel-title {
   color: #dddddd;
   font-family: 'Dancing Script', cursive;
   font-size: 56px;
+  font-weight: 700;
   text-align: left;
   margin-bottom: 20px;
 }
@@ -128,10 +139,12 @@ button {
 }
 
 .carousel .control-dots {
-  text-align: left !important; 
-  left: calc(10% - 14px)   /* percentage value coming from .carousel .slide padding,,,  px value coming from renderIndicator */
+  text-align: left !important;
+  left: calc(10% - 14px)
+    /* percentage value coming from .carousel .slide padding,,,  px value coming from renderIndicator */
 }
 
+/* carousel--- */
 
 
 @media only screen and (max-width: 800px) {
@@ -176,6 +189,10 @@ button {
 @media only screen and (min-width: 800px) {
   .menu-container {
     height: auto;
+  }
+
+  .menu--active--bg {
+    height: 100vh;
   }
 
 }

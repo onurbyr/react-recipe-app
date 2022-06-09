@@ -1,26 +1,31 @@
 import React, { useRef, useState, useEffect } from "react";
 import "./App.css";
 import { CgSearch, CgMenu } from "react-icons/cg";
-import "react-responsive-carousel/lib/styles/carousel.min.css"; 
+import "react-responsive-carousel/lib/styles/carousel.min.css";
 import { Carousel } from "react-responsive-carousel";
 import { BsFillCircleFill } from "react-icons/bs";
 
 const App = () => {
   const menu = useRef(null);
+  const background = useRef(null);
   const [isMenuActive, setIsMenuActive] = useState(false);
 
   useEffect(() => {
     if (isMenuActive) {
+      background.current.classList.add("menu--active--bg");
+      background.current.classList.remove("menu--deactive--bg");
       menu.current.classList.add("menu--active");
       menu.current.classList.remove("menu--deactive");
     } else {
+      background.current.classList.remove("menu--active--bg");
+      background.current.classList.add("menu--deactive--bg");
       menu.current.classList.remove("menu--active");
       menu.current.classList.add("menu--deactive");
     }
   }, [isMenuActive]);
 
   return (
-    <div>
+    <div ref={background} className="background">
       <header>
         <div className="logo-container">
           <a className="logo" href="/">
@@ -55,9 +60,10 @@ const App = () => {
         showStatus={false}
         infiniteLoop={true}
         showArrows={false}
+        swipeable={false}
         renderIndicator={(onClickHandler, isSelected, index) => {
           const defStyle = {
-            marginLeft: '20px',
+            marginLeft: "20px",
             color: "white",
             cursor: "pointer",
             fontSize: "14px",
