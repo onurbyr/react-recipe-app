@@ -1,6 +1,9 @@
 import React, { useRef, useState, useEffect } from "react";
 import "./App.css";
 import { CgSearch, CgMenu } from "react-icons/cg";
+import "react-responsive-carousel/lib/styles/carousel.min.css"; 
+import { Carousel } from "react-responsive-carousel";
+import { BsFillCircleFill } from "react-icons/bs";
 
 const App = () => {
   const menu = useRef(null);
@@ -46,10 +49,57 @@ const App = () => {
           </div>
         </div>
       </header>
-      <div style={{ color: "red" }}>
-        Et aute esse cillum incididunt fugiat duis occaecat cupidatat in quis
-        cillum excepteur fugiat.
-      </div>
+      <Carousel
+        showThumbs={false}
+        autoPlay={true}
+        showStatus={false}
+        infiniteLoop={true}
+        showArrows={false}
+        renderIndicator={(onClickHandler, isSelected, index) => {
+          const defStyle = {
+            marginLeft: '20px',
+            color: "white",
+            cursor: "pointer",
+            fontSize: "14px",
+          };
+          const style = isSelected
+            ? { ...defStyle, fontSize: "16px", color: "#ffbe33" }
+            : { ...defStyle };
+          return (
+            <span
+              style={style}
+              onClick={onClickHandler}
+              onKeyDown={onClickHandler}
+              value={index}
+              key={index}
+              role="button"
+              tabIndex={0}
+            >
+              <BsFillCircleFill />
+            </span>
+          );
+        }}
+      >
+        <div>
+          <div className="carousel-title">Recipe App</div>
+          <div className="carousel-text">
+            Velit mollit occaecat aliquip dolore aliqua consectetur.
+          </div>
+        </div>
+        <div>
+          <div className="carousel-title">Recipe App2</div>
+          <div className="carousel-text">
+            Sit occaecat reprehenderit veniam minim eu nostrud adipisicing anim
+            fugiat amet nulla aliqua et ut.
+          </div>
+        </div>
+        <div>
+          <div className="carousel-title">Recipe App3</div>
+          <div className="carousel-text">
+            Deserunt non laborum ipsum consectetur.
+          </div>
+        </div>
+      </Carousel>
     </div>
   );
 };

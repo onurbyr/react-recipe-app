@@ -1,4 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;500;600;700&family=Open+Sans:wght@400;600;700&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;600;700&display=swap');
+
 
 html {
   background: url(./images/hero-bg.jpg) no-repeat center center fixed;
@@ -8,9 +10,10 @@ html {
   background-size: cover;
 }
 
+/* navbar */
 header {
   display: flex;
-  padding: 20px 20px;
+  padding: 20px 10%;
 }
 
 .logo-container,
@@ -96,6 +99,37 @@ button {
 
 .menu--active {
   height: 200px;
+}
+
+/* navbar */
+
+/* carousel */
+.carousel-title {
+  color: #dddddd;
+  font-family: 'Dancing Script', cursive;
+  font-size: 56px;
+  text-align: left;
+  margin-bottom: 20px;
+}
+
+.carousel-text {
+  font-family: 'Open Sans', sans-serif;
+  color: #dddddd;
+  font-size: 18px;
+  text-align: left;
+}
+
+.carousel .slide {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  padding: 10%;
+  height: 70vh;
+}
+
+.carousel .control-dots {
+  text-align: left !important; 
+  left: calc(10% - 14px)   /* percentage value coming from .carousel .slide padding,,,  px value coming from renderIndicator */
 }
 
 
