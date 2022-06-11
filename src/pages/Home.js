@@ -3,15 +3,18 @@ import "../App.css";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import { Carousel } from "react-responsive-carousel";
 import { BsFillCircleFill } from "react-icons/bs";
-import Header from "../components/Header";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
+import { setIsHomeFalse, setIsHomeTrue } from "../redux/actions/isHomeActions";
 
 const Home = () => {
   const isMenuActive = useSelector((state) => state.menu);
+  const dispatch = useDispatch();
 
   useEffect(() => {
+    dispatch(setIsHomeTrue());
     document.body.classList.add("background");
     return () => {
+      dispatch(setIsHomeFalse());
       document.body.classList.remove("background");
       document.body.classList.remove("menu--active--bg");
       document.body.classList.remove("menu--deactive--bg");
@@ -30,7 +33,6 @@ const Home = () => {
 
   return (
     <div>
-      <Header />
       <Carousel
         showThumbs={false}
         autoPlay={true}

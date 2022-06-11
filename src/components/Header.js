@@ -6,9 +6,10 @@ import { Link } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { setIsMenuActive } from "../redux/actions/menuActions";
 
-const Header = (props) => {
+const Header = () => {
   const menu = useRef(null);
   const isMenuActive = useSelector((state) => state.menu);
+  const isHome = useSelector((state) => state.isHome);
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -24,7 +25,7 @@ const Header = (props) => {
   return (
     <header
       style={
-        props.pullIsMenuActive
+        isHome
           ? null
           : { background: "linear-gradient(to right, #0D0E10, #3A4243)" }
       }

@@ -5,7 +5,7 @@ import "../App.css";
 const Recipes = () => {
   return (
     <div>
-      <Header></Header>
+      Recipes
     </div>
   );
 };
