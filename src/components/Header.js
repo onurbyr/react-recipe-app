@@ -4,11 +4,11 @@ import { CgSearch, CgMenu } from "react-icons/cg";
 import { Link } from "react-router-dom";
 
 import { useSelector, useDispatch } from "react-redux";
-import { setIsMenuActive } from "../reducers/menuSlice";
+import { setIsMenuActive } from "../redux/actions/menuActions";
 
 const Header = (props) => {
   const menu = useRef(null);
-  const isMenuActive = useSelector((state) => state.menu.value);
+  const isMenuActive = useSelector((state) => state.menu);
   const dispatch = useDispatch();
 
   useEffect(() => {

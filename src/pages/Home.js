@@ -7,7 +7,7 @@ import Header from "../components/Header";
 import { useSelector } from "react-redux";
 
 const Home = () => {
-  const isMenuActive = useSelector((state) => state.menu.value);
+  const isMenuActive = useSelector((state) => state.menu);
 
   useEffect(() => {
     document.body.classList.add("background");
