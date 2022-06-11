@@ -1,15 +1,36 @@
-import React, { useRef } from "react";
+import React, { useEffect } from "react";
 import "../App.css";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import { Carousel } from "react-responsive-carousel";
 import { BsFillCircleFill } from "react-icons/bs";
 import Header from "../components/Header";
+import { useSelector } from "react-redux";
 
 const Home = () => {
-  const background = useRef(null);
+  const isMenuActive = useSelector((state) => state.menu.value);
+
+  useEffect(() => {
+    document.body.classList.add("background");
+    return () => {
+      document.body.classList.remove("background");
+      document.body.classList.remove("menu--active--bg");
+      document.body.classList.remove("menu--deactive--bg");
+    };
+  }, []);
+
+  useEffect(() => {
+    if (isMenuActive) {
+      document.body.classList.add("menu--active--bg");
+      document.body.classList.remove("menu--deactive--bg");
+    } else {
+      document.body.classList.remove("menu--active--bg");
+      document.body.classList.add("menu--deactive--bg");
+    }
+  }, [isMenuActive]);
+
   return (
-    <div ref={background} className="background">
-      <Header homeRef={background} />
+    <div>
+      <Header />
       <Carousel
         showThumbs={false}
         autoPlay={true}

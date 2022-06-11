@@ -1,25 +1,21 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useEffect, useRef } from "react";
 import "../App.css";
 import { CgSearch, CgMenu } from "react-icons/cg";
 import { Link } from "react-router-dom";
 
+import { useSelector, useDispatch } from "react-redux";
+import { setIsMenuActive } from "../reducers/menuSlice";
+
 const Header = (props) => {
   const menu = useRef(null);
-  const [isMenuActive, setIsMenuActive] = useState(false);
+  const isMenuActive = useSelector((state) => state.menu.value);
+  const dispatch = useDispatch();
 
   useEffect(() => {
     if (isMenuActive) {
-      if (props.homeRef) {
-        props.homeRef.current.classList.add("menu--active--bg");
-        props.homeRef.current.classList.remove("menu--deactive--bg");
-      }
       menu.current.classList.add("menu--active");
       menu.current.classList.remove("menu--deactive");
     } else {
-      if (props.homeRef) {
-        props.homeRef.current.classList.remove("menu--active--bg");
-        props.homeRef.current.classList.add("menu--deactive--bg");
-      }
       menu.current.classList.remove("menu--active");
       menu.current.classList.add("menu--deactive");
     }
@@ -28,7 +24,7 @@ const Header = (props) => {
   return (
     <header
       style={
-        props.homeRef
+        props.pullIsMenuActive
           ? null
           : { background: "linear-gradient(to right, #0D0E10, #3A4243)" }
       }
@@ -37,7 +33,7 @@ const Header = (props) => {
         <Link className="logo" to="/">
           <div className="logo-text">RecipeApp</div>
         </Link>
-        <button className="menu" onClick={() => setIsMenuActive(!isMenuActive)}>
+        <button className="menu" onClick={() => dispatch(setIsMenuActive())}>
           <CgMenu style={{ color: "white", fontSize: "36px" }} />
         </button>
       </div>
