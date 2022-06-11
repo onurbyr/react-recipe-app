@@ -147,6 +147,64 @@ button {
 /* carousel--- */
 
 
+/* ---recipes */
+
+.recipes-container {
+  margin-top: 10vh;
+}
+
+.recipes-container h2 {
+  font-size: 40px;
+  font-family: 'Dancing Script', cursive;
+  text-align: center;
+}
+
+.categories {
+  display: flex;
+  overflow: auto;
+  padding: 0 40px;
+
+}
+
+.categories ul {
+  display: flex;
+  padding: 0;
+  list-style-type: none;
+  flex: 1;
+  justify-content: center;
+}
+
+.categories li {
+  margin: 0 5px;
+  border-radius: 30px;
+  padding: 12px 20px;
+  color: #0c0c0c;
+  cursor: pointer;
+}
+
+.active-category {
+  background-color: #222831;
+  color: #ffffff !important;
+}
+
+/*--- custom scrollbar */
+.categories::-webkit-scrollbar {
+  height: 7px;
+}
+
+.categories::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  background: #DBDBDB;
+
+}
+
+.categories::-webkit-scrollbar-thumb:hover {
+  background: #D7D5D5;
+}
+
+/* custom scrollbar ---*/
+
+
 @media only screen and (max-width: 800px) {
 
   header {
