@@ -239,6 +239,15 @@ button {
 .recipe-cards .box .img-box img {
   max-height: 150px;
   width: auto;
+  transition: transform .2s;
+}
+
+.recipe-cards .box .img-box img:hover {
+  -ms-transform: scale(1.1);
+  /* IE 9 */
+  -webkit-transform: scale(1.1);
+  /* Safari 3-8 */
+  transform: scale(1.1);
 }
 
 .recipe-cards .box .detail-box {
@@ -262,6 +271,94 @@ button {
   align-items: center;
 }
 
+/* recipes ---*/
+
+
+/* --- footer */
+
+.footer-section {
+  padding: 75px 5% 40px 5%;
+  background-color: #222831;
+  color: #ffffff;
+}
+
+.footer-upside {
+  display: flex;
+}
+
+.footer-upside-items {
+  flex: 1;
+  margin: 0 10px 20px 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+
+.footer-section h4 {
+  font-weight: 600;
+  margin-bottom: 20px;
+  font-family: 'Dancing Script', cursive;
+  font-size: 1.5rem;
+}
+
+.contact-items {
+  font-size: 18px;
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+  cursor: pointer;
+  text-decoration: none;
+  color: #dddddd;
+}
+
+.contact-items span {
+  margin-left: 10px;
+}
+
+.footer-upside-items .footer-logo {
+  text-decoration: none;
+  color: #dddddd;
+  font-family: 'Dancing Script', cursive;
+  font-size: 38px;
+  font-weight: bold;
+  margin-top: 1.33rem;
+}
+
+.footer-upside-items p {
+  text-align: center;
+  color: #DBDBDB;
+}
+
+.footer-upside-items .footer-social a {
+  text-decoration: none;
+  color: #dddddd;
+  margin: 0 5px 0 5px;
+  font-size: 22px;
+}
+
+.footer-quick-links {
+  font-size: 18px;
+}
+
+.footer-quick-links a {
+  text-decoration: none;
+  color: #dddddd
+}
+
+.footer-quick-links .home,
+.recipes,
+.about {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.footer-downside {
+  text-align: center;
+}
+
+/* footer --- */
 
 @media only screen and (max-width: 800px) {
 
@@ -298,6 +395,10 @@ button {
     display: flex;
     justify-content: flex-end;
     margin-right: 5%;
+  }
+
+  .footer-upside {
+    flex-direction: column;
   }
 }
 
