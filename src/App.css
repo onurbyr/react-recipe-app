@@ -114,6 +114,11 @@ button {
 /* navbar--- */
 
 /* ---carousel */
+.carousel-container {
+  height: calc(100vh - 60px);
+  /*px value approximately  header size  */
+}
+
 .carousel-title {
   color: #dddddd;
   font-family: 'Dancing Script', cursive;
@@ -153,7 +158,7 @@ button {
   margin-top: 10vh;
 }
 
-.recipes-container h2 {
+.recipes-text {
   font-size: 40px;
   font-family: 'Dancing Script', cursive;
   text-align: center;
@@ -204,6 +209,59 @@ button {
 
 /* custom scrollbar ---*/
 
+.recipe-cards {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 50px 10px;
+}
+
+
+:root {
+  --margin-between-recipe-boxes: 1em;
+}
+
+.recipe-cards .box {
+  margin: var(--margin-between-recipe-boxes) var(--margin-between-recipe-boxes);
+  flex: calc(33.333333% - 2 * var(--margin-between-recipe-boxes));
+  /*   2 * = margin left and right */
+  background-color: #212529;
+  border-radius: 25px;
+}
+
+.recipe-cards .box .img-box {
+  background-color: #f1f2f3;
+  display: flex;
+  justify-content: center;
+  padding: 20px;
+  border-radius: 20px 20px 0px 20px;
+}
+
+.recipe-cards .box .img-box img {
+  max-height: 150px;
+  width: auto;
+}
+
+.recipe-cards .box .detail-box {
+  padding: 25px 25px;
+  color: #ffffff;
+  display: flex;
+}
+
+.recipe-cards .box .detail-box h2 {
+  flex: 0.9;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+  width: 100px;
+}
+
+.recipe-cards .detail-box button {
+  flex: 0.1;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
 
 @media only screen and (max-width: 800px) {
 
@@ -241,7 +299,6 @@ button {
     justify-content: flex-end;
     margin-right: 5%;
   }
-
 }
 
 @media only screen and (min-width: 800px) {

@@ -1,5 +1,6 @@
 import React, { useRef, useEffect } from "react";
 import "../App.css";
+import { BsFillArrowRightCircleFill } from "react-icons/bs";
 
 const Recipes = () => {
   const refs = useRef([]);
@@ -36,7 +37,7 @@ const Recipes = () => {
   };
   return (
     <div className="recipes-container">
-      <h2>Recipes</h2>
+      <h2 className="recipes-text">Recipes</h2>
       <div className="categories">
         <ul>
           {categories.map((item, index) => {
@@ -53,6 +54,104 @@ const Recipes = () => {
             );
           })}
         </ul>
+      </div>
+      <div className="recipe-cards">
+        <div className="box">
+          <div className="img-box">
+            <img src={require("../images/f1.png")} />
+          </div>
+          <div className="detail-box">
+            <h2>
+              Lorem, ipsum dolor sit amet consectetur adipisicing elit. Velit
+              perspiciatis quod facere consequuntur cumque sapiente. In nesciunt
+              error officiis, obcaecati saepe necessitatibus dicta nobis
+              explicabo aperiam quod assumenda ex aliquam?
+            </h2>
+            <button>
+              <BsFillArrowRightCircleFill size={"40px"} color={"#ffbe33"} />
+            </button>
+          </div>
+        </div>
+        <div className="box">
+          <div className="img-box">
+            <img src={require("../images/f2.png")} />
+          </div>
+          <div className="detail-box">
+            <h2>
+              Lorem, ipsum dolor sit amet consectetur adipisicing elit. Velit
+              perspiciatis quod facere consequuntur cumque sapiente. In nesciunt
+              error officiis, obcaecati saepe necessitatibus dicta nobis
+              explicabo aperiam quod assumenda ex aliquam?
+            </h2>
+            <button>
+              <BsFillArrowRightCircleFill size={"40px"} color={"#ffbe33"} />
+            </button>
+          </div>
+        </div>
+        <div className="box">
+          <div className="img-box">
+            <img src={require("../images/f3.png")} />
+          </div>
+          <div className="detail-box">
+            <h2>
+              Lorem, ipsum dolor sit amet consectetur adipisicing elit. Velit
+              perspiciatis quod facere consequuntur cumque sapiente. In nesciunt
+              error officiis, obcaecati saepe necessitatibus dicta nobis
+              explicabo aperiam quod assumenda ex aliquam?
+            </h2>
+            <button>
+              <BsFillArrowRightCircleFill size={"40px"} color={"#ffbe33"} />
+            </button>
+          </div>
+        </div>
+        <div className="box">
+          <div className="img-box">
+            <img src={require("../images/f4.png")} />
+          </div>
+          <div className="detail-box">
+            <h2>
+              Lorem, ipsum dolor sit amet consectetur adipisicing elit. Velit
+              perspiciatis quod facere consequuntur cumque sapiente. In nesciunt
+              error officiis, obcaecati saepe necessitatibus dicta nobis
+              explicabo aperiam quod assumenda ex aliquam?
+            </h2>
+            <button>
+              <BsFillArrowRightCircleFill size={"40px"} color={"#ffbe33"} />
+            </button>
+          </div>
+        </div>
+        <div className="box">
+          <div className="img-box">
+            <img src={require("../images/f1.png")} />
+          </div>
+          <div className="detail-box">
+            <h2>
+              Lorem, ipsum dolor sit amet consectetur adipisicing elit. Velit
+              perspiciatis quod facere consequuntur cumque sapiente. In nesciunt
+              error officiis, obcaecati saepe necessitatibus dicta nobis
+              explicabo aperiam quod assumenda ex aliquam?
+            </h2>
+            <button>
+              <BsFillArrowRightCircleFill size={"40px"} color={"#ffbe33"} />
+            </button>
+          </div>
+        </div>
+        <div className="box">
+          <div className="img-box">
+            <img src={require("../images/f2.png")} />
+          </div>
+          <div className="detail-box">
+            <h2>
+              Lorem, ipsum dolor sit amet consectetur adipisicing elit. Velit
+              perspiciatis quod facere consequuntur cumque sapiente. In nesciunt
+              error officiis, obcaecati saepe necessitatibus dicta nobis
+              explicabo aperiam quod assumenda ex aliquam?
+            </h2>
+            <button>
+              <BsFillArrowRightCircleFill size={"40px"} color={"#ffbe33"} />
+            </button>
+          </div>
+        </div>
       </div>
     </div>
   );
