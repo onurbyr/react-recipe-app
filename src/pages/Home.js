@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import { useEffect } from "react";
 import "../App.css";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import { Carousel } from "react-responsive-carousel";
@@ -6,6 +6,7 @@ import { BsFillCircleFill } from "react-icons/bs";
 import { useSelector, useDispatch } from "react-redux";
 import { setIsHomeFalse, setIsHomeTrue } from "../redux/actions/isHomeActions";
 import Recipes from "./Recipes";
+import About from "./About";
 
 const Home = () => {
   const isMenuActive = useSelector((state) => state.menu);
@@ -89,6 +90,7 @@ const Home = () => {
         </Carousel>
       </div>
       <Recipes />
+      <About />
     </div>
   );
 };

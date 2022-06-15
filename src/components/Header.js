@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from "react";
+import { useEffect, useRef } from "react";
 import "../App.css";
 import { CgSearch, CgMenu } from "react-icons/cg";
 import { Link } from "react-router-dom";
@@ -43,7 +43,7 @@ const Header = () => {
           <div className="nav_links">
             <Link to="/">HOME</Link>
             <Link to="/recipes">RECIPES</Link>
-            <a href="#about">ABOUT</a>
+            <Link to="/about">ABOUT</Link>
           </div>
         </nav>
         <div className="search-container">

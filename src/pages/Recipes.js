@@ -1,4 +1,4 @@
-import React, { useRef, useEffect } from "react";
+import { useRef, useEffect } from "react";
 import "../App.css";
 import { BsFillArrowRightCircleFill } from "react-icons/bs";
 
@@ -58,7 +58,7 @@ const Recipes = () => {
       <div className="recipe-cards">
         <div className="box">
           <div className="img-box">
-            <img src={require("../images/f1.png")} />
+            <img alt="" src={require("../images/f1.png")} />
           </div>
           <div className="detail-box">
             <h2>
@@ -74,7 +74,7 @@ const Recipes = () => {
         </div>
         <div className="box">
           <div className="img-box">
-            <img src={require("../images/f2.png")} />
+            <img alt="" src={require("../images/f2.png")} />
           </div>
           <div className="detail-box">
             <h2>
@@ -90,7 +90,7 @@ const Recipes = () => {
         </div>
         <div className="box">
           <div className="img-box">
-            <img src={require("../images/f3.png")} />
+            <img alt="" src={require("../images/f3.png")} />
           </div>
           <div className="detail-box">
             <h2>
@@ -106,7 +106,7 @@ const Recipes = () => {
         </div>
         <div className="box">
           <div className="img-box">
-            <img src={require("../images/f4.png")} />
+            <img alt="" src={require("../images/f4.png")} />
           </div>
           <div className="detail-box">
             <h2>
@@ -122,7 +122,7 @@ const Recipes = () => {
         </div>
         <div className="box">
           <div className="img-box">
-            <img src={require("../images/f1.png")} />
+            <img alt="" src={require("../images/f1.png")} />
           </div>
           <div className="detail-box">
             <h2>
@@ -138,7 +138,7 @@ const Recipes = () => {
         </div>
         <div className="box">
           <div className="img-box">
-            <img src={require("../images/f2.png")} />
+            <img alt="" src={require("../images/f2.png")} />
           </div>
           <div className="detail-box">
             <h2>

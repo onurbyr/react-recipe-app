@@ -274,6 +274,52 @@ button {
 /* recipes ---*/
 
 
+/* ---about */
+
+
+.about-container {
+  padding: 90px 10%;
+  background-color: #222831;
+  display: flex;
+}
+
+.about-container img {
+  max-width: 445px;
+}
+
+.about-detail-box {
+  margin-left: 50px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.about-detail-box h2 {
+  font-size: 40px;
+  font-weight: bold;
+  font-family: 'Dancing Script', cursive;
+  color: #ffffff;
+  margin-bottom: 0px;
+}
+
+.about-detail-box p {
+  color: #ffffff;
+  margin-bottom: 2em;
+}
+
+.about-detail-box button {
+  background-color: #FFBE33;
+  width: 180px;
+  height: 50px;
+  border-radius: 30px;
+  color: #ffffff;
+}
+
+
+/* about ---*/
+
+
+
 /* --- footer */
 
 .footer-section {
@@ -398,6 +444,10 @@ button {
   }
 
   .footer-upside {
+    flex-direction: column;
+  }
+
+  .about-container {
     flex-direction: column;
   }
 }
