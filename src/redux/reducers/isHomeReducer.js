@@ -1,8 +1,10 @@
+import { SET_HOME_TRUE, SET_HOME_FALSE } from "../types";
+
 const isHomeReducer = (state = false, action) => {
   switch (action.type) {
-    case "SET_HOME_TRUE":
+    case SET_HOME_TRUE:
       return true;
-    case "SET_HOME_FALSE":
+    case SET_HOME_FALSE:
       return false;
     default:
       return state;

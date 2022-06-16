@@ -1,33 +1,20 @@
 import { useRef, useEffect } from "react";
 import "../App.css";
 import { BsFillArrowRightCircleFill } from "react-icons/bs";
+import { useDispatch, useSelector } from "react-redux";
+import { getCategory } from "../redux/actions/recipesActions";
 
 const Recipes = () => {
   const refs = useRef([]);
+  const dispatch = useDispatch();
+  const recipes = useSelector((state) => state.recipes);
 
   useEffect(() => {
-    refs.current[0].classList.add("active-category");
-  }, []);
-
-  const categories = [
-    "Beef",
-    "Breakfast",
-    "Chicken",
-    "Dessert",
-    "Goat",
-    "Lamb",
-    "Miscellaneous",
-    "Pasta",
-    "Pork",
-    "Seafood",
-    "Side",
-    "Starter",
-    "Vegan",
-    "Vegetarian",
-  ];
+    dispatch(getCategory());
+  }, [dispatch]);
 
   const selectCategory = (index) => {
-    for (let i = 0; i < categories.length; i++) {
+    for (let i = 0; i < recipes.categories.length; i++) {
       if (i === index) {
         refs.current[i].classList.add("active-category");
       } else {
@@ -40,16 +27,17 @@ const Recipes = () => {
       <h2 className="recipes-text">Recipes</h2>
       <div className="categories">
         <ul>
-          {categories.map((item, index) => {
+          {recipes.categories.map((item, index) => {
             return (
               <li
                 key={index}
+                className={index === 0 ? "active-category" : ""}
                 ref={(element) => {
                   refs.current[index] = element;
                 }}
                 onClick={() => selectCategory(index)}
               >
-                {item}
+                {item.strCategory}
               </li>
             );
           })}

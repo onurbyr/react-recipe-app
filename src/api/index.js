@@ -1,3 +1,3 @@
-import recipes from "./recipes";
+import * as recipes from "./recipes";
 
 export { recipes };
