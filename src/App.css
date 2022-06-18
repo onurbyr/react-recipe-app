@@ -237,9 +237,10 @@ button {
 }
 
 .recipe-cards .box .img-box img {
-  max-height: 150px;
-  width: auto;
+  max-width: 200px;
+  height: auto;
   transition: transform .2s;
+  border-radius: 20px;
 }
 
 .recipe-cards .box .img-box img:hover {

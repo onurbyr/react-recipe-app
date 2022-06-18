@@ -4,7 +4,6 @@ import {
 } from "../types";
 
 const initialState = {
-  //categories: [],
   filteredMealsByCategory: [],
   categoriesAndFilteredMealsByFirstCategory: [],
   loading: true,
@@ -12,12 +11,6 @@ const initialState = {
 
 const recipesReducer = (state = initialState, action) => {
   switch (action.type) {
-    // case GET_CATEGORIES:
-    //   return {
-    //     ...state,
-    //     categories: action.payload,
-    //     loading: false,
-    //   };
     case FILTER_BY_CATEGORY:
       return {
         ...state,

@@ -2,20 +2,21 @@ import { useRef, useEffect } from "react";
 import "../App.css";
 import { BsFillArrowRightCircleFill } from "react-icons/bs";
 import { useDispatch, useSelector } from "react-redux";
-import { getCategoriesAndfilterByFirstCategory } from "../redux/actions/recipesActions";
+import {
+  getCategoriesAndfilterByFirstCategory,
+  filterByCategory,
+} from "../redux/actions/recipesActions";
 
 const Recipes = () => {
   const refs = useRef([]);
   const dispatch = useDispatch();
   const recipes = useSelector((state) => state.recipes);
 
-  console.log(recipes.categoriesAndFilteredMealsByFirstCategory);
-
   useEffect(() => {
     dispatch(getCategoriesAndfilterByFirstCategory());
   }, [dispatch]);
 
-  const selectCategory = (index) => {
+  const selectCategory = (index, strCategory) => {
     for (
       let i = 0;
       i < recipes.categoriesAndFilteredMealsByFirstCategory.categories.length;
@@ -27,6 +28,7 @@ const Recipes = () => {
         refs.current[i].classList.remove("active-category");
       }
     }
+    dispatch(filterByCategory({ c: strCategory }));
   };
   return (
     <div className="recipes-container">
@@ -43,7 +45,7 @@ const Recipes = () => {
                     ref={(element) => {
                       refs.current[index] = element;
                     }}
-                    onClick={() => selectCategory(index)}
+                    onClick={() => selectCategory(index, item.strCategory)}
                   >
                     {item.strCategory}
                   </li>
@@ -53,102 +55,50 @@ const Recipes = () => {
         </ul>
       </div>
       <div className="recipe-cards">
-        <div className="box">
-          <div className="img-box">
-            <img alt="" src={require("../images/f1.png")} />
-          </div>
-          <div className="detail-box">
-            <h2>
-              Lorem, ipsum dolor sit amet consectetur adipisicing elit. Velit
-              perspiciatis quod facere consequuntur cumque sapiente. In nesciunt
-              error officiis, obcaecati saepe necessitatibus dicta nobis
-              explicabo aperiam quod assumenda ex aliquam?
-            </h2>
-            <button>
-              <BsFillArrowRightCircleFill size={"40px"} color={"#ffbe33"} />
-            </button>
-          </div>
-        </div>
-        <div className="box">
-          <div className="img-box">
-            <img alt="" src={require("../images/f2.png")} />
-          </div>
-          <div className="detail-box">
-            <h2>
-              Lorem, ipsum dolor sit amet consectetur adipisicing elit. Velit
-              perspiciatis quod facere consequuntur cumque sapiente. In nesciunt
-              error officiis, obcaecati saepe necessitatibus dicta nobis
-              explicabo aperiam quod assumenda ex aliquam?
-            </h2>
-            <button>
-              <BsFillArrowRightCircleFill size={"40px"} color={"#ffbe33"} />
-            </button>
-          </div>
-        </div>
-        <div className="box">
-          <div className="img-box">
-            <img alt="" src={require("../images/f3.png")} />
-          </div>
-          <div className="detail-box">
-            <h2>
-              Lorem, ipsum dolor sit amet consectetur adipisicing elit. Velit
-              perspiciatis quod facere consequuntur cumque sapiente. In nesciunt
-              error officiis, obcaecati saepe necessitatibus dicta nobis
-              explicabo aperiam quod assumenda ex aliquam?
-            </h2>
-            <button>
-              <BsFillArrowRightCircleFill size={"40px"} color={"#ffbe33"} />
-            </button>
-          </div>
-        </div>
-        <div className="box">
-          <div className="img-box">
-            <img alt="" src={require("../images/f4.png")} />
-          </div>
-          <div className="detail-box">
-            <h2>
-              Lorem, ipsum dolor sit amet consectetur adipisicing elit. Velit
-              perspiciatis quod facere consequuntur cumque sapiente. In nesciunt
-              error officiis, obcaecati saepe necessitatibus dicta nobis
-              explicabo aperiam quod assumenda ex aliquam?
-            </h2>
-            <button>
-              <BsFillArrowRightCircleFill size={"40px"} color={"#ffbe33"} />
-            </button>
-          </div>
-        </div>
-        <div className="box">
-          <div className="img-box">
-            <img alt="" src={require("../images/f1.png")} />
-          </div>
-          <div className="detail-box">
-            <h2>
-              Lorem, ipsum dolor sit amet consectetur adipisicing elit. Velit
-              perspiciatis quod facere consequuntur cumque sapiente. In nesciunt
-              error officiis, obcaecati saepe necessitatibus dicta nobis
-              explicabo aperiam quod assumenda ex aliquam?
-            </h2>
-            <button>
-              <BsFillArrowRightCircleFill size={"40px"} color={"#ffbe33"} />
-            </button>
-          </div>
-        </div>
-        <div className="box">
-          <div className="img-box">
-            <img alt="" src={require("../images/f2.png")} />
-          </div>
-          <div className="detail-box">
-            <h2>
-              Lorem, ipsum dolor sit amet consectetur adipisicing elit. Velit
-              perspiciatis quod facere consequuntur cumque sapiente. In nesciunt
-              error officiis, obcaecati saepe necessitatibus dicta nobis
-              explicabo aperiam quod assumenda ex aliquam?
-            </h2>
-            <button>
-              <BsFillArrowRightCircleFill size={"40px"} color={"#ffbe33"} />
-            </button>
-          </div>
-        </div>
+        {/* filteredMealsByFirstCategory */}
+        {!recipes.filteredMealsByCategory.length &&
+          recipes.categoriesAndFilteredMealsByFirstCategory
+            .filteredByFirstCategory &&
+          recipes.categoriesAndFilteredMealsByFirstCategory.filteredByFirstCategory.map(
+            (item, index) => {
+              return (
+                <div className="box" key={index}>
+                  <div className="img-box">
+                    <img alt="" src={item.strMealThumb} />
+                  </div>
+                  <div className="detail-box">
+                    <h2>{item.strMeal}</h2>
+                    <button>
+                      <BsFillArrowRightCircleFill
+                        size={"40px"}
+                        color={"#ffbe33"}
+                      />
+                    </button>
+                  </div>
+                </div>
+              );
+            }
+          )}
+        {/* filteredMealsByCategory */}
+        {recipes.filteredMealsByCategory &&
+          recipes.filteredMealsByCategory.map((item, index) => {
+            return (
+              <div className="box" key={index}>
+                <div className="img-box">
+                  <img alt="" src={item.strMealThumb} />
+                </div>
+                <div className="detail-box">
+                  <h2>{item.strMeal}</h2>
+                  <button>
+                    <BsFillArrowRightCircleFill
+                      size={"40px"}
+                      color={"#ffbe33"}
+                    />
+                  </button>
+                </div>
+              </div>
+            );
+          })}
       </div>
     </div>
   );
