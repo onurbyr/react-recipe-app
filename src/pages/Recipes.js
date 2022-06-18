@@ -2,19 +2,25 @@ import { useRef, useEffect } from "react";
 import "../App.css";
 import { BsFillArrowRightCircleFill } from "react-icons/bs";
 import { useDispatch, useSelector } from "react-redux";
-import { getCategory } from "../redux/actions/recipesActions";
+import { getCategoriesAndfilterByFirstCategory } from "../redux/actions/recipesActions";
 
 const Recipes = () => {
   const refs = useRef([]);
   const dispatch = useDispatch();
   const recipes = useSelector((state) => state.recipes);
 
+  console.log(recipes.categoriesAndFilteredMealsByFirstCategory);
+
   useEffect(() => {
-    dispatch(getCategory());
+    dispatch(getCategoriesAndfilterByFirstCategory());
   }, [dispatch]);
 
   const selectCategory = (index) => {
-    for (let i = 0; i < recipes.categories.length; i++) {
+    for (
+      let i = 0;
+      i < recipes.categoriesAndFilteredMealsByFirstCategory.categories.length;
+      i++
+    ) {
       if (i === index) {
         refs.current[i].classList.add("active-category");
       } else {
@@ -27,20 +33,23 @@ const Recipes = () => {
       <h2 className="recipes-text">Recipes</h2>
       <div className="categories">
         <ul>
-          {recipes.categories.map((item, index) => {
-            return (
-              <li
-                key={index}
-                className={index === 0 ? "active-category" : ""}
-                ref={(element) => {
-                  refs.current[index] = element;
-                }}
-                onClick={() => selectCategory(index)}
-              >
-                {item.strCategory}
-              </li>
-            );
-          })}
+          {recipes.categoriesAndFilteredMealsByFirstCategory.categories &&
+            recipes.categoriesAndFilteredMealsByFirstCategory.categories.map(
+              (item, index) => {
+                return (
+                  <li
+                    key={index}
+                    className={index === 0 ? "active-category" : ""}
+                    ref={(element) => {
+                      refs.current[index] = element;
+                    }}
+                    onClick={() => selectCategory(index)}
+                  >
+                    {item.strCategory}
+                  </li>
+                );
+              }
+            )}
         </ul>
       </div>
       <div className="recipe-cards">

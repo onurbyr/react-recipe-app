@@ -1,20 +1,23 @@
 import * as api from "../../api";
-import { GET_CATEGORIES, FILTER_BY_CATEGORY } from "../types";
+import {
+  FILTER_BY_CATEGORY,
+  GET_CATEGORIES_AND_FILTER_BY_FIRST_CATEGORY,
+} from "../types";
 
-export const getCategory = () => {
-  return async (dispatch) => {
-    try {
-      const res = await api.recipes.getCategory();
-      if (res.categories)
-        dispatch({
-          type: GET_CATEGORIES,
-          payload: res.categories,
-        });
-    } catch (error) {
-      console.warn("ERROR : getCategory : ", error);
-    }
-  };
-};
+// export const getCategory = () => {
+//   return async (dispatch) => {
+//     try {
+//       const res = await api.recipes.getCategory();
+//       if (res.categories)
+//         dispatch({
+//           type: GET_CATEGORIES,
+//           payload: res.categories,
+//         });
+//     } catch (error) {
+//       console.warn("ERROR : getCategory : ", error);
+//     }
+//   };
+// };
 
 export const filterByCategory = (params) => {
   return async (dispatch) => {
@@ -27,6 +30,21 @@ export const filterByCategory = (params) => {
         });
     } catch (error) {
       console.warn("ERROR : filterByCategory : ", error);
+    }
+  };
+};
+
+export const getCategoriesAndfilterByFirstCategory = () => {
+  return async (dispatch) => {
+    try {
+      const res = await api.recipes.getCategoriesAndfilterByFirstCategory();
+      if (res.categories && res.filteredByFirstCategory)
+        dispatch({
+          type: GET_CATEGORIES_AND_FILTER_BY_FIRST_CATEGORY,
+          payload: res,
+        });
+    } catch (error) {
+      console.warn("ERROR : getCategoriesAndfilterByFirstCategory : ", error);
     }
   };
 };
