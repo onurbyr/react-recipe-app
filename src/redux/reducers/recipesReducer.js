@@ -1,7 +1,8 @@
-import { GET_CATEGORIES } from "../types";
+import { GET_CATEGORIES, FILTER_BY_CATEGORY } from "../types";
 
 const initialState = {
   categories: [],
+  filteredMealsByCategory: [],
   loading: true,
 };
 
@@ -11,6 +12,12 @@ const recipesReducer = (state = initialState, action) => {
       return {
         ...state,
         categories: action.payload,
+        loading: false,
+      };
+    case FILTER_BY_CATEGORY:
+      return {
+        ...state,
+        filteredMealsByCategory: action.payload,
         loading: false,
       };
     default:
