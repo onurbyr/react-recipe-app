@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import "../App.css";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import { Carousel } from "react-responsive-carousel";
@@ -8,11 +8,14 @@ import { setIsHomeFalse, setIsHomeTrue } from "../redux/actions/isHomeActions";
 import { getRandomCategories } from "../redux/actions/homeActions";
 import Recipes from "./Recipes";
 import About from "./About";
+import Modal from "../components/Modal/Modal";
 
 const Home = () => {
   const isMenuActive = useSelector((state) => state.menu);
   const home = useSelector((state) => state.home);
   const dispatch = useDispatch();
+  const [modalOpen, setModalOpen] = useState(false);
+  const [modalTitleAndText, setModalTitleAndText] = useState({});
 
   useEffect(() => {
     dispatch(setIsHomeTrue());
@@ -36,8 +39,32 @@ const Home = () => {
     }
   }, [isMenuActive]);
 
+  const readMore = (item) => {
+    return (
+      <span
+        onClick={() => {
+          setModalOpen(true);
+          setModalTitleAndText({
+            strCategory: item.strCategory,
+            strCategoryDescription: item.strCategoryDescription,
+          });
+        }}
+      >
+        {" "}
+        Read More
+      </span>
+    );
+  };
+
   return (
     <div>
+      {modalOpen && (
+        <Modal
+          setOpenModal={setModalOpen}
+          title={modalTitleAndText.strCategory}
+          body={modalTitleAndText.strCategoryDescription}
+        />
+      )}
       <div className="carousel-container">
         <Carousel
           showThumbs={false}
@@ -77,7 +104,12 @@ const Home = () => {
                 <div key={index}>
                   <div className="carousel-title">{item.strCategory}</div>
                   <div className="carousel-text">
-                    {item.strCategoryDescription}
+                    {item.strCategoryDescription.length >= 300
+                      ? [
+                          item.strCategoryDescription.slice(0, 300) + "...",
+                          readMore(item),
+                        ]
+                      : item.strCategoryDescription}
                   </div>
                 </div>
               );
