@@ -2,6 +2,7 @@ import * as api from "../../api";
 import {
   FILTER_BY_CATEGORY,
   GET_CATEGORIES_AND_FILTER_BY_FIRST_CATEGORY,
+  RESET_RECIPES_REDUCER,
 } from "../types";
 
 export const filterByCategory = (params) => {
@@ -31,5 +32,11 @@ export const getCategoriesAndfilterByFirstCategory = () => {
     } catch (error) {
       console.warn("ERROR : getCategoriesAndfilterByFirstCategory : ", error);
     }
+  };
+};
+
+export const resetRecipesReducer = () => {
+  return {
+    type: RESET_RECIPES_REDUCER,
   };
 };

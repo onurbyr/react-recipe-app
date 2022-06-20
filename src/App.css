@@ -190,6 +190,7 @@ button {
 .active-category {
   background-color: #222831;
   color: #ffffff !important;
+  pointer-events:none;
 }
 
 /*--- custom scrollbar */

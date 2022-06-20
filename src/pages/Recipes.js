@@ -5,7 +5,10 @@ import { useDispatch, useSelector } from "react-redux";
 import {
   getCategoriesAndfilterByFirstCategory,
   filterByCategory,
+  resetRecipesReducer,
 } from "../redux/actions/recipesActions";
+import { LazyLoadImage } from "react-lazy-load-image-component";
+import "react-lazy-load-image-component/src/effects/opacity.css";
 
 const Recipes = () => {
   const refs = useRef([]);
@@ -14,6 +17,9 @@ const Recipes = () => {
 
   useEffect(() => {
     dispatch(getCategoriesAndfilterByFirstCategory());
+    return () => {
+      dispatch(resetRecipesReducer());
+    };
   }, [dispatch]);
 
   const selectCategory = (index, strCategory) => {
@@ -64,7 +70,11 @@ const Recipes = () => {
               return (
                 <div className="box" key={index}>
                   <div className="img-box">
-                    <img alt="" src={item.strMealThumb} />
+                    <LazyLoadImage
+                      alt=""
+                      src={item.strMealThumb}
+                      effect="opacity"
+                    />
                   </div>
                   <div className="detail-box">
                     <h2>{item.strMeal}</h2>
@@ -85,7 +95,11 @@ const Recipes = () => {
             return (
               <div className="box" key={index}>
                 <div className="img-box">
-                  <img alt="" src={item.strMealThumb} />
+                  <LazyLoadImage
+                    alt=""
+                    src={item.strMealThumb}
+                    effect="opacity"
+                  />
                 </div>
                 <div className="detail-box">
                   <h2>{item.strMeal}</h2>

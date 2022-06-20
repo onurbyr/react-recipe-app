@@ -1,6 +1,7 @@
 import {
   FILTER_BY_CATEGORY,
   GET_CATEGORIES_AND_FILTER_BY_FIRST_CATEGORY,
+  RESET_RECIPES_REDUCER,
 } from "../types";
 
 const initialState = {
@@ -22,6 +23,10 @@ const recipesReducer = (state = initialState, action) => {
         ...state,
         categoriesAndFilteredMealsByFirstCategory: action.payload,
         loading: false,
+      };
+    case RESET_RECIPES_REDUCER:
+      return {
+        ...initialState,
       };
     default:
       return state;
