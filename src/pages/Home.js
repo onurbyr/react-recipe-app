@@ -5,15 +5,18 @@ import { Carousel } from "react-responsive-carousel";
 import { BsFillCircleFill } from "react-icons/bs";
 import { useSelector, useDispatch } from "react-redux";
 import { setIsHomeFalse, setIsHomeTrue } from "../redux/actions/isHomeActions";
+import { getRandomCategories } from "../redux/actions/homeActions";
 import Recipes from "./Recipes";
 import About from "./About";
 
 const Home = () => {
   const isMenuActive = useSelector((state) => state.menu);
+  const home = useSelector((state) => state.home);
   const dispatch = useDispatch();
 
   useEffect(() => {
     dispatch(setIsHomeTrue());
+    dispatch(getRandomCategories());
     document.body.classList.add("background");
     return () => {
       dispatch(setIsHomeFalse());
@@ -68,25 +71,17 @@ const Home = () => {
             );
           }}
         >
-          <div>
-            <div className="carousel-title">Recipe App</div>
-            <div className="carousel-text">
-              Velit mollit occaecat aliquip dolore aliqua consectetur.
-            </div>
-          </div>
-          <div>
-            <div className="carousel-title">Recipe App2</div>
-            <div className="carousel-text">
-              Sit occaecat reprehenderit veniam minim eu nostrud adipisicing
-              anim fugiat amet nulla aliqua et ut.
-            </div>
-          </div>
-          <div>
-            <div className="carousel-title">Recipe App3</div>
-            <div className="carousel-text">
-              Deserunt non laborum ipsum consectetur.
-            </div>
-          </div>
+          {home.randomCategories.length &&
+            home.randomCategories.map((item, index) => {
+              return (
+                <div key={index}>
+                  <div className="carousel-title">{item.strCategory}</div>
+                  <div className="carousel-text">
+                    {item.strCategoryDescription}
+                  </div>
+                </div>
+              );
+            })}
         </Carousel>
       </div>
       <Recipes />
