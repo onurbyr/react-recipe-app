@@ -1,5 +1,11 @@
 import * as api from "../../api";
-import { GET_SEARCH } from "../types";
+import { GET_SEARCH, SET_MENU_ACTIVE } from "../types";
+
+export const setIsMenuActive = () => {
+  return {
+    type: SET_MENU_ACTIVE,
+  };
+};
 
 export const getSearch = (params) => {
   return async (dispatch) => {

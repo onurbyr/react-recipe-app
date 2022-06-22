@@ -3,12 +3,11 @@ import "../App.css";
 import { CgSearch, CgMenu } from "react-icons/cg";
 import { Link, useNavigate, useLocation } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
-import { setIsMenuActive } from "../redux/actions/menuActions";
-import { getSearch } from "../redux/actions/headerActions";
+import { getSearch, setIsMenuActive } from "../redux/actions/headerActions";
 
 const Header = () => {
   const menu = useRef(null);
-  const isMenuActive = useSelector((state) => state.menu);
+  const isMenuActive = useSelector((state) => state.header.isMenuActive);
   const isHome = useSelector((state) => state.home.isHome);
   const dispatch = useDispatch();
   let navigate = useNavigate();

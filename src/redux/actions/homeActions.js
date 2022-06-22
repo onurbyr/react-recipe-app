@@ -28,7 +28,7 @@ export const getRandomCategories = () => {
         for (let index = 0; index < 3; ) {
           let newItem = getRandomCategory();
           if (
-            randomCategories.some((e) => e.idCategory == newItem.idCategory)
+            randomCategories.some((e) => e.idCategory === newItem.idCategory)
           ) {
           } else {
             randomCategories.push(newItem);
