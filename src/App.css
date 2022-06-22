@@ -10,6 +10,15 @@
   background-size: cover;
 }
 
+button {
+  background-color: transparent;
+  background-repeat: no-repeat;
+  border: none;
+  cursor: pointer;
+  overflow: hidden;
+  outline: none;
+}
+
 /* ---navbar */
 header {
   display: flex;
@@ -81,17 +90,6 @@ nav a:hover {
 .search-container input:focus {
   outline: none;
 }
-
-
-button {
-  background-color: transparent;
-  background-repeat: no-repeat;
-  border: none;
-  cursor: pointer;
-  overflow: hidden;
-  outline: none;
-}
-
 
 .menu--deactive {
   height: 0;
@@ -327,6 +325,16 @@ button {
 
 /* about ---*/
 
+/* --- search */
+
+.no-result {
+  display: flex;
+  flex: 1;
+  justify-content: center;
+}
+
+/* search --- */
+
 
 
 /* --- footer */
@@ -439,10 +447,6 @@ button {
 
   .search-container {
     justify-content: center;
-  }
-
-  .search-container button {
-    margin-right: 0;
   }
 
   .menu {

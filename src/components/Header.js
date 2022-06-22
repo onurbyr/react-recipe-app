@@ -1,5 +1,4 @@
 import { useEffect, useRef } from "react";
-import "../App.css";
 import { CgSearch, CgMenu } from "react-icons/cg";
 import { Link, useNavigate, useLocation } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
@@ -60,9 +59,9 @@ const Header = () => {
             placeholder="Search.."
             name="search"
           />
-          <button type="submit">
-            <CgSearch style={{ color: "white", fontSize: "22px" }} />
-          </button>
+          <CgSearch
+            style={{ color: "white", fontSize: "22px", marginLeft: "10px" }}
+          />
         </div>
       </div>
     </header>

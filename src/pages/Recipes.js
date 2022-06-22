@@ -1,5 +1,4 @@
 import { useRef, useEffect } from "react";
-import "../App.css";
 import { BsFillArrowRightCircleFill } from "react-icons/bs";
 import { useDispatch, useSelector } from "react-redux";
 import {
