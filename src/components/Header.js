@@ -1,16 +1,18 @@
 import { useEffect, useRef } from "react";
 import "../App.css";
 import { CgSearch, CgMenu } from "react-icons/cg";
-import { Link } from "react-router-dom";
-
+import { Link, useNavigate, useLocation } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { setIsMenuActive } from "../redux/actions/menuActions";
+import { getSearch } from "../redux/actions/headerActions";
 
 const Header = () => {
   const menu = useRef(null);
   const isMenuActive = useSelector((state) => state.menu);
   const isHome = useSelector((state) => state.isHome);
   const dispatch = useDispatch();
+  let navigate = useNavigate();
+  const location = useLocation();
 
   useEffect(() => {
     if (isMenuActive) {
@@ -21,6 +23,12 @@ const Header = () => {
       menu.current.classList.add("menu--deactive");
     }
   }, [isMenuActive]);
+
+  const handleChange = (e) => {
+    location.pathname !== "/search" && navigate("../search");
+    dispatch(getSearch(e.target.value));
+    e.target.value === "" && navigate(-1);
+  };
 
   return (
     <header
@@ -47,7 +55,12 @@ const Header = () => {
           </div>
         </nav>
         <div className="search-container">
-          <input type="text" placeholder="Search.." name="search" />
+          <input
+            onChange={handleChange}
+            type="text"
+            placeholder="Search.."
+            name="search"
+          />
           <button type="submit">
             <CgSearch style={{ color: "white", fontSize: "22px" }} />
           </button>

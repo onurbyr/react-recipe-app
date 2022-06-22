@@ -5,6 +5,7 @@ import App from "./App";
 import Home from "./pages/Home";
 import Recipes from "./pages/Recipes";
 import About from "./pages/About";
+import Search from "./pages/Search";
 import store from "./redux/store/store";
 import { Provider } from "react-redux";
 
@@ -17,6 +18,7 @@ root.render(
           <Route path="/" element={<Home />} />
           <Route path="recipes" element={<Recipes />} />
           <Route path="about" element={<About />} />
+          <Route path="search" element={<Search />} />
         </Route>
       </Routes>
     </BrowserRouter>

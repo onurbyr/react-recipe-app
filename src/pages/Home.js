@@ -42,6 +42,7 @@ const Home = () => {
   const readMore = (item) => {
     return (
       <span
+        key={item.idCategory}
         onClick={() => {
           setModalOpen(true);
           setModalTitleAndText({
