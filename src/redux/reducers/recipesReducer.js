@@ -2,12 +2,14 @@ import {
   FILTER_BY_CATEGORY,
   GET_CATEGORIES_AND_FILTER_BY_FIRST_CATEGORY,
   RESET_RECIPES_REDUCER,
+  SET_LOADING_TRUE,
 } from "../types";
 
 const initialState = {
   filteredMealsByCategory: [],
   categoriesAndFilteredMealsByFirstCategory: [],
-  loading: true,
+  filteredMealsByCategoryLoading: false,
+  categoriesAndFilteredMealsByFirstCategoryloading: true,
 };
 
 const recipesReducer = (state = initialState, action) => {
@@ -16,17 +18,22 @@ const recipesReducer = (state = initialState, action) => {
       return {
         ...state,
         filteredMealsByCategory: action.payload,
-        loading: false,
+        filteredMealsByCategoryLoading: false,
       };
     case GET_CATEGORIES_AND_FILTER_BY_FIRST_CATEGORY:
       return {
         ...state,
         categoriesAndFilteredMealsByFirstCategory: action.payload,
-        loading: false,
+        categoriesAndFilteredMealsByFirstCategoryloading: false,
       };
     case RESET_RECIPES_REDUCER:
       return {
         ...initialState,
+      };
+    case SET_LOADING_TRUE:
+      return {
+        ...state,
+        filteredMealsByCategoryLoading: true,
       };
     default:
       return state;

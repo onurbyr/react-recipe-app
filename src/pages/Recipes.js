@@ -8,6 +8,7 @@ import {
 } from "../redux/actions/recipesActions";
 import { LazyLoadImage } from "react-lazy-load-image-component";
 import "react-lazy-load-image-component/src/effects/opacity.css";
+import Spinner from "../components/Spinner";
 
 const Recipes = () => {
   const refs = useRef([]);
@@ -35,7 +36,9 @@ const Recipes = () => {
     }
     dispatch(filterByCategory({ c: strCategory }));
   };
-  return (
+  return recipes.categoriesAndFilteredMealsByFirstCategoryloading ? (
+    <Spinner color="#212529" />
+  ) : (
     <div className="recipes-container">
       <h2 className="recipes-text">Recipes</h2>
       <div className="categories">
@@ -89,7 +92,9 @@ const Recipes = () => {
             }
           )}
         {/* filteredMealsByCategory */}
-        {recipes.filteredMealsByCategory &&
+        {recipes.filteredMealsByCategoryLoading ? (
+          <Spinner color="#212529" />
+        ) : (
           recipes.filteredMealsByCategory.map((item, index) => {
             return (
               <div className="box" key={index}>
@@ -111,7 +116,8 @@ const Recipes = () => {
                 </div>
               </div>
             );
-          })}
+          })
+        )}
       </div>
     </div>
   );

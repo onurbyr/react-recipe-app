@@ -3,11 +3,13 @@ import {
   FILTER_BY_CATEGORY,
   GET_CATEGORIES_AND_FILTER_BY_FIRST_CATEGORY,
   RESET_RECIPES_REDUCER,
+  SET_LOADING_TRUE,
 } from "../types";
 
 export const filterByCategory = (params) => {
   return async (dispatch) => {
     try {
+      dispatch({ type: SET_LOADING_TRUE });
       const res = await api.recipes.filterByCategory(params);
       if (res.meals)
         dispatch({

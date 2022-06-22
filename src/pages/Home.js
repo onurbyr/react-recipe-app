@@ -11,6 +11,7 @@ import {
 import Recipes from "./Recipes";
 import About from "./About";
 import Modal from "../components/Modal/Modal";
+import Spinner from "../components/Spinner";
 
 const Home = () => {
   const isMenuActive = useSelector((state) => state.menu);
@@ -59,7 +60,9 @@ const Home = () => {
     );
   };
 
-  return (
+  return home.loading ? (
+    <Spinner height="100vh" color="#dddddd" />
+  ) : (
     <div>
       {modalOpen && (
         <Modal
