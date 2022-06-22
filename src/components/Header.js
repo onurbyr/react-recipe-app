@@ -9,7 +9,7 @@ import { getSearch } from "../redux/actions/headerActions";
 const Header = () => {
   const menu = useRef(null);
   const isMenuActive = useSelector((state) => state.menu);
-  const isHome = useSelector((state) => state.isHome);
+  const isHome = useSelector((state) => state.home.isHome);
   const dispatch = useDispatch();
   let navigate = useNavigate();
   const location = useLocation();

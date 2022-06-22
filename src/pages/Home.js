@@ -4,8 +4,11 @@ import "react-responsive-carousel/lib/styles/carousel.min.css";
 import { Carousel } from "react-responsive-carousel";
 import { BsFillCircleFill } from "react-icons/bs";
 import { useSelector, useDispatch } from "react-redux";
-import { setIsHomeFalse, setIsHomeTrue } from "../redux/actions/isHomeActions";
-import { getRandomCategories } from "../redux/actions/homeActions";
+import {
+  setIsHomeFalse,
+  setIsHomeTrue,
+  getRandomCategories,
+} from "../redux/actions/homeActions";
 import Recipes from "./Recipes";
 import About from "./About";
 import Modal from "../components/Modal/Modal";
