@@ -1,9 +1,9 @@
 import {
   FILTER_BY_CATEGORY,
   GET_CATEGORIES_AND_FILTER_BY_FIRST_CATEGORY,
-  RESET_RECIPES_REDUCER,
   SET_LOADING_TRUE,
   GET_DETAILS,
+  SET_ACTIVE_CATEGORY,
 } from "../types";
 
 const initialState = {
@@ -13,6 +13,7 @@ const initialState = {
   categoriesAndFilteredMealsByFirstCategoryloading: true,
   selectedItemLoading: true,
   selectedItem: null,
+  activeCategory: 0,
 };
 
 const recipesReducer = (state = initialState, action) => {
@@ -29,10 +30,10 @@ const recipesReducer = (state = initialState, action) => {
         categoriesAndFilteredMealsByFirstCategory: action.payload,
         categoriesAndFilteredMealsByFirstCategoryloading: false,
       };
-    case RESET_RECIPES_REDUCER:
-      return {
-        ...initialState,
-      };
+    // case RESET_RECIPES_REDUCER:
+    //   return {
+    //     ...initialState,
+    //   };
     case SET_LOADING_TRUE:
       return {
         ...state,
@@ -43,6 +44,11 @@ const recipesReducer = (state = initialState, action) => {
         ...state,
         selectedItem: action.payload,
         selectedItemLoading: false,
+      };
+    case SET_ACTIVE_CATEGORY:
+      return {
+        ...state,
+        activeCategory: action.payload,
       };
     default:
       return state;

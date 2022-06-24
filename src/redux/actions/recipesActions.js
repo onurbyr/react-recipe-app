@@ -2,9 +2,9 @@ import * as api from "../../api";
 import {
   FILTER_BY_CATEGORY,
   GET_CATEGORIES_AND_FILTER_BY_FIRST_CATEGORY,
-  RESET_RECIPES_REDUCER,
   SET_LOADING_TRUE,
   GET_DETAILS,
+  SET_ACTIVE_CATEGORY,
 } from "../types";
 
 export const filterByCategory = (params) => {
@@ -38,11 +38,11 @@ export const getCategoriesAndfilterByFirstCategory = () => {
   };
 };
 
-export const resetRecipesReducer = () => {
-  return {
-    type: RESET_RECIPES_REDUCER,
-  };
-};
+// export const resetRecipesReducer = () => {
+//   return {
+//     type: RESET_RECIPES_REDUCER,
+//   };
+// };
 
 export const getDetails = (params) => {
   return async (dispatch) => {
@@ -56,5 +56,12 @@ export const getDetails = (params) => {
     } catch (error) {
       console.warn("ERROR : getDetails : ", error);
     }
+  };
+};
+
+export const setActiveCategory = (val) => {
+  return {
+    type: SET_ACTIVE_CATEGORY,
+    payload: val,
   };
 };
