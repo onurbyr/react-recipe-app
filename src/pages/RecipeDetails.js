@@ -16,7 +16,10 @@ const RecipeDetails = () => {
   return recipes.selectedItemLoading ? (
     <Spinner color="#212529" height="100vh" />
   ) : (
-    <div>
+    <div className="recipe-details-container">
+      <div className="reciped-details-image-container">
+        <img src={recipes.selectedItem.strMealThumb} alt="" />
+      </div>
       <div>{recipes.selectedItem.strMeal}</div>
     </div>
   );
