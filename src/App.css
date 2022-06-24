@@ -271,7 +271,7 @@ nav a:hover {
   width: 100px;
 }
 
-.recipe-cards .detail-box button {
+.recipe-cards .detail-box a {
   flex: 0.1;
   display: flex;
   justify-content: flex-end;

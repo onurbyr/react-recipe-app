@@ -18,3 +18,7 @@ export async function getCategoriesAndfilterByFirstCategory(params) {
     filteredByFirstCategory: filteredByFirstCategory.meals,
   };
 }
+
+export async function getDetails(params) {
+  return await get("lookup.php", params);
+}

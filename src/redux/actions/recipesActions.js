@@ -4,6 +4,7 @@ import {
   GET_CATEGORIES_AND_FILTER_BY_FIRST_CATEGORY,
   RESET_RECIPES_REDUCER,
   SET_LOADING_TRUE,
+  GET_DETAILS,
 } from "../types";
 
 export const filterByCategory = (params) => {
@@ -40,5 +41,20 @@ export const getCategoriesAndfilterByFirstCategory = () => {
 export const resetRecipesReducer = () => {
   return {
     type: RESET_RECIPES_REDUCER,
+  };
+};
+
+export const getDetails = (params) => {
+  return async (dispatch) => {
+    try {
+      const res = await api.recipes.getDetails(params);
+      if (res.meals)
+        dispatch({
+          type: GET_DETAILS,
+          payload: res.meals[0],
+        });
+    } catch (error) {
+      console.warn("ERROR : getDetails : ", error);
+    }
   };
 };

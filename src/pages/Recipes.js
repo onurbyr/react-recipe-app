@@ -9,6 +9,7 @@ import {
 import { LazyLoadImage } from "react-lazy-load-image-component";
 import "react-lazy-load-image-component/src/effects/opacity.css";
 import Spinner from "../components/Spinner";
+import { Link } from "react-router-dom";
 
 const Recipes = () => {
   const refs = useRef([]);
@@ -80,12 +81,12 @@ const Recipes = () => {
                   </div>
                   <div className="detail-box">
                     <h2>{item.strMeal}</h2>
-                    <button>
+                    <Link to={`/recipes/${item.idMeal}`}>
                       <BsFillArrowRightCircleFill
-                        size={"40px"}
+                        size={"35px"}
                         color={"#ffbe33"}
                       />
-                    </button>
+                    </Link>
                   </div>
                 </div>
               );
@@ -107,12 +108,12 @@ const Recipes = () => {
                 </div>
                 <div className="detail-box">
                   <h2>{item.strMeal}</h2>
-                  <button>
+                  <Link to={`/recipes/${item.idMeal}`}>
                     <BsFillArrowRightCircleFill
-                      size={"40px"}
+                      size={"35px"}
                       color={"#ffbe33"}
                     />
-                  </button>
+                  </Link>
                 </div>
               </div>
             );

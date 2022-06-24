@@ -3,6 +3,7 @@ import {
   GET_CATEGORIES_AND_FILTER_BY_FIRST_CATEGORY,
   RESET_RECIPES_REDUCER,
   SET_LOADING_TRUE,
+  GET_DETAILS,
 } from "../types";
 
 const initialState = {
@@ -10,6 +11,8 @@ const initialState = {
   categoriesAndFilteredMealsByFirstCategory: [],
   filteredMealsByCategoryLoading: false,
   categoriesAndFilteredMealsByFirstCategoryloading: true,
+  selectedItemLoading: true,
+  selectedItem: null,
 };
 
 const recipesReducer = (state = initialState, action) => {
@@ -34,6 +37,12 @@ const recipesReducer = (state = initialState, action) => {
       return {
         ...state,
         filteredMealsByCategoryLoading: true,
+      };
+    case GET_DETAILS:
+      return {
+        ...state,
+        selectedItem: action.payload,
+        selectedItemLoading: false,
       };
     default:
       return state;
