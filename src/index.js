@@ -9,11 +9,13 @@ import Search from "./pages/Search";
 import RecipeDetails from "./pages/RecipeDetails";
 import store from "./redux/store/store";
 import { Provider } from "react-redux";
+import ScrollToTop from "./router/scrollToTop";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <Provider store={store}>
     <BrowserRouter>
+      <ScrollToTop />
       <Routes>
         <Route path="/" element={<App />}>
           <Route path="/" element={<Home />} />
