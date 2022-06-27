@@ -3,6 +3,7 @@ import { useSelector } from "react-redux";
 import { BsFillArrowRightCircleFill } from "react-icons/bs";
 import { LazyLoadImage } from "react-lazy-load-image-component";
 import "react-lazy-load-image-component/src/effects/opacity.css";
+import { Link } from "react-router-dom";
 
 const Search = () => {
   const header = useSelector((state) => state.header);
@@ -24,12 +25,12 @@ const Search = () => {
                 </div>
                 <div className="detail-box">
                   <h2>{item.strMeal}</h2>
-                  <button>
+                  <Link to={`/recipes/${item.idMeal}`}>
                     <BsFillArrowRightCircleFill
                       size={"40px"}
                       color={"#ffbe33"}
                     />
-                  </button>
+                  </Link>
                 </div>
               </div>
             );

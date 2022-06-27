@@ -358,8 +358,29 @@ nav a:hover {
 .ingredients h4 {
   color: #474747;
   font-size: 1.5rem;
-  margin-top: 20px;
+  margin-top: 16px;
+  margin-bottom: 0;
+}
 
+.recipe-details-video h4 {
+  color: #474747;
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.recipe-details-video-container {
+  position: relative;
+  padding-bottom: 56.25%;
+  /* 16:9 */
+  height: 0;
+}
+
+.recipe-details-video-container iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 70%;
+  height: 100%;
 }
 
 /* recipe details --- */
@@ -563,6 +584,10 @@ nav a:hover {
 
   .ingredients {
     margin-left: 0;
+  }
+
+  .recipe-details-video-container iframe {
+    width: 100%;
   }
 }
 

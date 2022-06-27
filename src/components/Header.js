@@ -47,9 +47,28 @@ const Header = () => {
       <div ref={menu} className="menu-container">
         <nav>
           <div className="nav_links">
-            <Link to="/">HOME</Link>
-            <Link to="/recipes">RECIPES</Link>
-            <Link to="/about">ABOUT</Link>
+            <Link
+              style={location.pathname === "/" ? { color: "#FFBE33" } : null}
+              to="/"
+            >
+              HOME
+            </Link>
+            <Link
+              style={
+                location.pathname === "/recipes" ? { color: "#FFBE33" } : null
+              }
+              to="/recipes"
+            >
+              RECIPES
+            </Link>
+            <Link
+              style={
+                location.pathname === "/about" ? { color: "#FFBE33" } : null
+              }
+              to="/about"
+            >
+              ABOUT
+            </Link>
           </div>
         </nav>
         <div className="search-container">

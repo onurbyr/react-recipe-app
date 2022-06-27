@@ -14,8 +14,8 @@ const RecipeDetails = () => {
   }, [dispatch]);
 
   const renderIngredients = () => {
-    var rows = [];
-    for (var i = 1; i <= 20; i++) {
+    let rows = [];
+    for (let i = 1; i <= 20; i++) {
       let strMeasure = `strMeasure${i}`;
       let strIngredient = `strIngredient${i}`;
       recipes.selectedItem[strMeasure] &&
@@ -29,6 +29,13 @@ const RecipeDetails = () => {
         );
     }
     return rows;
+  };
+
+  const getVideoId = (url) => {
+    let regExp =
+      /^.*((youtu.be\/)|(v\/)|(\/u\/\w\/)|(embed\/)|(watch\?))\??v?=?([^#&?]*).*/;
+    let match = url.match(regExp);
+    return match && match[7].length == 11 ? match[7] : false;
   };
 
   return recipes.selectedItemLoading ? (
@@ -58,6 +65,20 @@ const RecipeDetails = () => {
           <ul>{renderIngredients()}</ul>
         </div>
       </div>
+      {recipes.selectedItem.strYoutube && (
+        <div className="recipe-details-video">
+          <h4>Video</h4>
+          <div className="recipe-details-video-container">
+            <iframe
+              src={`https://www.youtube-nocookie.com/embed/${getVideoId(
+                recipes.selectedItem.strYoutube
+              )}`}
+              allowFullScreen
+              frameBorder="0"
+            ></iframe>
+          </div>
+        </div>
+      )}
     </div>
   );
 };
