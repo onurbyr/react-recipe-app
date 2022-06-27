@@ -305,6 +305,63 @@ nav a:hover {
   clip-path: inset(0px -20px 0px -20px);
 }
 
+.recipe-details-header h2 {
+  font-size: 36px;
+  color: #474747;
+  margin-bottom: 30px;
+}
+
+.recipe-info-container {
+  display: flex;
+}
+
+.recipe-info-line {
+  width: 3px;
+  margin-right: 10px;
+  background-color: #40ba37;
+}
+
+.recipe-info {
+  padding: 8px 0;
+}
+
+.recipe-info h6 {
+  font-size: 15px;
+  margin-top: 0;
+  margin-bottom: 5px;
+  font-weight: 600;
+}
+
+.instructions-ingredients {
+  display: flex;
+}
+
+.instructions {
+  color: #9b9b9b;
+  font-size: 16px;
+  line-height: 2;
+  flex: 70%;
+}
+
+.ingredients {
+  margin-left: 5%;
+  flex: 30%;
+}
+
+.ingredients li {
+  font-weight: 600;
+  font-size: 1.2rem;
+  margin-bottom: 5px;
+  color: #474747;
+}
+
+.ingredients h4 {
+  color: #474747;
+  font-size: 1.5rem;
+  margin-top: 20px;
+
+}
+
 /* recipe details --- */
 
 
@@ -498,6 +555,14 @@ nav a:hover {
   .reciped-details-image-container img {
     max-width: 100%;
     clip-path: initial;
+  }
+
+  .instructions-ingredients {
+    flex-direction: column;
+  }
+
+  .ingredients {
+    margin-left: 0;
   }
 }
 
