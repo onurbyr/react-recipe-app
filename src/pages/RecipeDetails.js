@@ -11,7 +11,7 @@ const RecipeDetails = () => {
 
   useEffect(() => {
     dispatch(getDetails({ i: id }));
-  }, [dispatch]);
+  }, [dispatch, id]);
 
   const renderIngredients = () => {
     let rows = [];
@@ -35,7 +35,7 @@ const RecipeDetails = () => {
     let regExp =
       /^.*((youtu.be\/)|(v\/)|(\/u\/\w\/)|(embed\/)|(watch\?))\??v?=?([^#&?]*).*/;
     let match = url.match(regExp);
-    return match && match[7].length == 11 ? match[7] : false;
+    return match && match[7].length === 11 ? match[7] : false;
   };
 
   return recipes.selectedItemLoading ? (
@@ -70,6 +70,7 @@ const RecipeDetails = () => {
           <h4>Video</h4>
           <div className="recipe-details-video-container">
             <iframe
+              title="Recipe Video"
               src={`https://www.youtube-nocookie.com/embed/${getVideoId(
                 recipes.selectedItem.strYoutube
               )}`}
