@@ -2,7 +2,7 @@
 
 Recipe App with React and Redux
 
-![medium](https://drive.google.com/uc?id=118D0iZIIizVHN2Vp8f_vi07VuBmrQwy_)
+![git](https://user-images.githubusercontent.com/61909278/176457346-abe7432d-3036-4efa-a915-942e10d1097e.png)
 
 
 ## Installation
